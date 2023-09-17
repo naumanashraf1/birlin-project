@@ -35,6 +35,7 @@ function addMarker(markerPosition) {
 }
 
 const markers = {
+  Other: 'https://maps.google.com/mapfiles/ms/icons/red-dot.png',
   Berlin: 'https://maps.google.com/mapfiles/ms/icons/red-dot.png',
   'New Delhi': 'https://maps.google.com/mapfiles/ms/icons/blue-dot.png',
   A: 'https://maps.google.com/mapfiles/ms/icons/green-dot.png',
