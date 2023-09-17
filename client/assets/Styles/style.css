@@ -1,0 +1,233 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+*{ 
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+title{
+    font-family: 'Montserrat', sans-serif;
+    color: red !important;
+    background-color: red;
+
+}
+
+.mainC {
+    width: 100%;
+    height: 100vh;
+    color: white;
+    /* border: 1px solid black; */
+    background-color: #2d3436;
+    background-image: linear-gradient(315deg, #2d3436 0%, #000000 74%);
+}
+
+
+.col {
+    /* border: 1px solid black; */
+}
+
+.logo {
+    width: 350px !important;
+    /* border: 1px solid black; */
+
+}
+
+/* .fireShadow{
+    box-shadow: 0px 0px 20px 0px rgba(65, 37, 8, 0.75);
+    padding: 20px;
+} */
+
+.rightArrow {
+    font-size: 35px;
+    color: white;
+    border: none !important;
+
+}
+
+.journeyBtn{
+    margin-top: 100px !important;
+
+}
+
+.journeyBtn h2{
+    font-size: 30px !important;
+    text-transform: capitalize;
+    color: white !important;
+    
+}
+
+/* .rightArrow:hover {
+    transition-duration: 1s;
+    transition-delay: 0.2s;
+    font-size: 45px;
+} */
+
+
+/* code for animation */
+.slideOutDown {
+    animation-name: slideOutDown;
+    animation-duration: 5s;
+    animation-fill-mode: both;
+
+}
+.zoomInRight {
+    animation-name: zoomInRight;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    border: none !important;
+}
+
+@keyframes slideOutDown {
+    0% {
+        transform: translateY(0);
+        position: absolute;
+        top: 0;
+
+    }
+    25% {
+        opacity: .8;
+    }
+    
+    50% {
+        opacity: .6;
+    }
+    75% {
+        opacity: .4;
+    }
+
+    100% {
+        opacity: .2;
+        position: absolute;
+        top: 30%;
+        visibility: hidden;
+        transform: translateY(100%);
+    }
+} 
+
+
+
+
+
+@keyframes zoomInRight {
+    0% {
+        opacity: 0;
+        transform: scale3d(.1, .1, .1) translate3d(1000px, 0, 0);
+        animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);
+    }
+    20% {
+        opacity: .5;
+        transform: scale3d(.1, .1, .1) translate3d(1000px, 0, 0);
+        animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);
+    }
+
+    60% {
+        opacity: 1;
+        transform: scale3d(.475, .475, .475) translate3d(-10px, 0, 0);
+        animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);
+    }
+}
+ 
+/* code for animation */
+
+
+
+/*Code for fire animation*/
+.fireContainer{
+    /* margin:80px auto; */
+    margin: 0px 0px -46px 423px;
+    width: 60px;
+    height: 60px;
+    position:relative;
+    transform-origin:center bottom;
+    animation-name: flicker;
+    animation-duration:3ms;
+    animation-delay:200ms;
+    animation-timing-function: ease-in;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+  
+  .flame{
+    bottom:0;
+    position:absolute;
+    border-bottom-right-radius: 50%;
+    border-bottom-left-radius: 50%;
+    border-top-left-radius: 50%;
+    transform:rotate(-45deg) scale(1.5,1.5);
+  }
+  
+  .yellow{
+    left:15px; 
+    width: 5px;
+    height: 5px;
+    background:gold;
+    box-shadow: 0px 0px 9px 4px gold;
+  }
+  
+  .orange{
+    left:10px; 
+    width: 10px;
+    height: 10px;
+    background:orange;
+    box-shadow: 0px 0px 9px 4px orange;
+  }
+  
+  .red{
+    left:5px;
+    width: 15px;
+    height: 15px;
+    background:OrangeRed;
+    box-shadow: 0px 0px 5px 4px OrangeRed;
+  }
+  
+  .white{
+    left:15px; 
+    bottom:-4px;
+    width: 5px;
+    height: 5px;
+    background:white;
+    box-shadow: 0px 0px 9px 4px white;
+  }
+  
+  .circle{
+    border-radius: 50%;
+    position:absolute;  
+  }
+  
+  .blue{
+    width: 3px;
+    height: 3px;
+    left: 15px;
+    bottom: -10px;
+    background: SlateBlue;
+    box-shadow: 0px 0px 15px 10px SlateBlue;
+  }
+  
+  .black{
+    width: 10px;
+    height: 40px;
+    left:10px;
+    bottom:-60px;  
+  background: black;
+    box-shadow: 0px 0px 15px 10px black;
+  }
+  
+  @keyframes flicker{
+    0%   {transform: rotate(-1deg);}
+    20%  {transform: rotate(1deg);}
+    40%  {transform: rotate(-1deg);}
+    60%  {transform: rotate(1deg) scaleY(1.04);}
+    80%  {transform: rotate(-2deg) scaleY(0.92);}
+    100% {transform: rotate(1deg);}
+  }
+
+/*Code for fire animation*/
+
+@media only screen and (min-width: 320px){
+    .mainCC{
+        margin-left: 140px;
+    
+      }
+}
