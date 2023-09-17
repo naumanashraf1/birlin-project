@@ -22,16 +22,47 @@ function addMarker(markerPosition) {
   if (!window.mapRef) return;
 
   // Delete the previous marker if it exists
-  if (marker) {
-    marker.setMap(null);
+  if (window.marker) {
+    window.marker.setMap(null);
   }
 
   // Create a marker and set its position on the map.
-  marker = new google.maps.Marker({
+  window.marker = new google.maps.Marker({
     position: markerPosition,
     map: window.mapRef, // Associate the marker with the map
     title: 'Marker Title', // Optional: Add a title to the marker
   });
+}
+
+const markers = {
+  Berlin: 'https://maps.google.com/mapfiles/ms/icons/red-dot.png',
+  'New Delhi': 'https://maps.google.com/mapfiles/ms/icons/blue-dot.png',
+  A: 'https://maps.google.com/mapfiles/ms/icons/green-dot.png',
+  B: 'https://maps.google.com/mapfiles/ms/icons/yellow-dot.png',
+};
+
+function addMarkers(markerPositions) {
+  if (!window.mapRef) return;
+
+  // Delete the previous marker if it exists
+  if (window.markers) {
+    window.markers.map((marker) => marker.setMap(null));
+  }
+
+  window.markers = markerPositions.map(
+    ({ location, city }) =>
+      new google.maps.Marker({
+        position: location,
+        map: window.mapRef, // Associate the marker with the map
+        title: 'Marker Title', // Optional: Add a title to the marker
+        icon: {
+          url: markers[city], // URL to a red marker icon image
+          scaledSize: new google.maps.Size(30, 30), // Size of the icon
+          origin: new google.maps.Point(0, 0), // Origin point of the icon (usually 0,0)
+          anchor: new google.maps.Point(15, 30), // Anchor point of the icon (centered at the bottom)
+        },
+      })
+  );
 }
 
 const checkInputs = document.querySelectorAll('.form-check-input');
@@ -47,13 +78,24 @@ const onChange = () => {
   }
 
   const nomId = textInput.value;
-  console.log('🚀 ~ file: map.js:42 ~ onChange ~ locations:', locations);
-  console.log('🚀 ~ file: map.js:50 ~ onChange ~ nomId:', nomId);
+
+  axios
+    .post('http://localhost:5000/api/v1/nomads', { locations, nomId }) // Replace "/submit" with your server endpoint
+    .then(function (response) {
+      addMarkers(response.data);
+    })
+    .catch(function (error) {
+      // Handle any errors
+      console.error('Error:', error);
+      // You can show an error message to the user
+    });
 };
 
-document.querySelector('#map-form').addEventListener('submit', e => e.preventDefault());
+document
+  .querySelector('#map-form')
+  .addEventListener('submit', (e) => e.preventDefault());
 
-checkInputs.forEach(input => {
+checkInputs.forEach((input) => {
   input.addEventListener('change', debounce(onChange, 1000));
 });
 textInput.addEventListener('keyup', debounce(onChange, 1000));

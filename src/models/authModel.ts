@@ -1,5 +1,5 @@
 import { model, Schema } from 'mongoose';
-import { User } from '../types/interfaces';
+import { CITY, User } from '../types/interfaces';
 import bcrypt from 'bcryptjs';
 
 const userSchema = new Schema<User>({
@@ -21,10 +21,14 @@ const userSchema = new Schema<User>({
     select: false,
   },
   location: {
-    type: { type: String },
-    coordinates: {
-      type: [String],
-    },
+    lat: { type: Number },
+    lng: { type: Number },
+  },
+  city: {
+    type: String,
+  },
+  nomId: {
+    type: String,
   },
   experience: {
     type: String,

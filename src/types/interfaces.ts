@@ -1,3 +1,5 @@
+export type CITY = 'Berlin' | 'New Delhi' | 'Other';
+
 export type User = {
   name: String;
 
@@ -5,9 +7,11 @@ export type User = {
   password: String;
 
   location: {
-    type: string;
-    coordinates: string[];
+    lat: number;
+    lng: number;
   };
+  city: string;
+  nomId: string;
   experience: string;
   foundDetail: string;
   alias: string;

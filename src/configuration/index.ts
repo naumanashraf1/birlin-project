@@ -37,3 +37,4 @@ export const PORT = port;
 export const BUCKET = CLOUD_BUCKET;
 export const StripPubKey = STRIPE_SECRET_KEY;
 export const StripSecKey = STRIPE_SECRET_KEY;
+export const { GOOGLE_API_KEY } = process.env;

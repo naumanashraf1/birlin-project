@@ -15,6 +15,14 @@ document.addEventListener('DOMContentLoaded', function () {
         formData[input.name] = input.value;
       }
     }
+
+    if (!window.userCoords) {
+      alert('Please allow your location it is required to register');
+      return;
+    }
+
+    formData.location = userCoords;
+
     // Make an Axios POST request to your Node.js server
     axios
       .post('http://localhost:5000/api/v1/register', formData) // Replace "/submit" with your server endpoint

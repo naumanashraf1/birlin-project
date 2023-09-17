@@ -2,15 +2,8 @@ var x = document.getElementById('demo');
 
 function getLocation() {
   if (navigator.geolocation) {
-    showPosition({
-      coords: {
-        latitude: 31.516637,
-        longitude: 74.3041847,
-      },
-    });
-
-    // if (navigator.geolocation.coords) showPosition(navigator.geolocation);
-    // else navigator.geolocation.getCurrentPosition(showPosition);
+    if (navigator.geolocation.coords) showPosition(navigator.geolocation);
+    else navigator.geolocation.getCurrentPosition(showPosition);
   } else {
     x.innerHTML = 'Geolocation is not supported by this browser.';
   }
@@ -29,6 +22,8 @@ function showPosition(position) {
     lat: position.coords.latitude,
     lng: position.coords.longitude,
   };
+
+  window.userCoords = mapCoords;
 
   flyTo(mapCoords, 16);
 
