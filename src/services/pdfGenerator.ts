@@ -53,7 +53,6 @@ export const pdfMaker = async function (
 ): Promise<Buffer> {
   return new Promise(async (res, rej) => {
     try {
-      console.log(browser);
       const page = await browser.newPage();
       await page?.setContent(data, {
         waitUntil: ['domcontentloaded', 'load', 'networkidle0'],

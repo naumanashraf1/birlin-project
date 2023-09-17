@@ -39,15 +39,17 @@
   </head>
 
   <body>
-    <div class="container-fluid d-flex justify-content-center signupC text-center p-5">
+    <div
+      class="container-fluid d-flex justify-content-center signupC text-center p-5"
+    >
       <div class="row d-flex justify-content-center">
         <div class="col col-xs-3 col-sm-6 col-md-12">
           <h1 class="topLine">What is NOMAD?</h1>
           <div class="text-center-special">
             <p class="specialText">
-              NOMAD is a 100% WITHOUT COST and COMMITMENT FREE art-project developed by
-              the Berlin-based conceptual artist LiquidSilver. Watch the movie and take
-              part of the journey:
+              NOMAD is a 100% WITHOUT COST and COMMITMENT FREE art-project
+              developed by the Berlin-based conceptual artist LiquidSilver.
+              Watch the movie and take part of the journey:
             </p>
           </div>
         </div>
@@ -85,6 +87,7 @@
                   <input
                     type="text"
                     class="form-control"
+                    name="name"
                     id="userName"
                     placeholder="Please enter your first name"
                   />
@@ -97,6 +100,7 @@
                   <input
                     type="password"
                     class="form-control"
+                    name="password"
                     id="password"
                     placeholder="Please enter your password"
                   />
@@ -112,6 +116,7 @@
                     class="form-control"
                     id="inputName"
                     placeholder="Alias to be used in the project"
+                    name="alias"
                   />
                   <!-- required -->
                 </div>
@@ -124,6 +129,7 @@
                     type="email"
                     class="form-control"
                     id="inputEmail3"
+                    name="email"
                     placeholder="test@gmail.com"
                   />
                   <!-- required -->
@@ -150,24 +156,14 @@
                   >How did the Nomad find you?</label
                 >
                 <div class="col col-sm-12 col-md-6">
-                  <textarea class="form-control" id="NOMAD" rows="3" cols="2"></textarea>
+                  <textarea
+                    name="foundDetail"
+                    class="form-control"
+                    id="NOMAD"
+                    rows="3"
+                    cols="2"
+                  ></textarea>
                   <!-- required -->
-                </div>
-              </div>
-
-              <div class="form-group row">
-                <label
-                  for="NOMAD"
-                  class="col-12 labelText"
-                  title="Upload picture, text, video or other creative content about your Nomad"
-                  >Optional:
-                  <br />
-                  Upload content</label
-                >
-
-                <div class="col col-sm-12 col-md-6">
-                  <input type="file" class="form-control" id="file" />
-                  <!-- required /> -->
                 </div>
               </div>
 
@@ -175,11 +171,15 @@
                 <div class="col-1">
                   <input type="checkbox" id="myCheckbox" name="myCheckbox" />
                 </div>
-                <div class="col-11 text-left" style="text-align: left !important">
+                <div
+                  class="col-11 text-left"
+                  style="text-align: left !important"
+                >
                   <label for="myCheckbox"
-                    >I approve that the information and material provided above can be
-                    used freely by the copyright holder under the agreement of the hereby
-                    provided fine print terms and conditions.</label
+                    >I approve that the information and material provided above
+                    can be used freely by the copyright holder under the
+                    agreement of the hereby provided fine print terms and
+                    conditions.</label
                   >
                 </div>
               </div>
@@ -190,10 +190,13 @@
                 <div class="col-1">
                   <input type="checkbox" id="myCheckbox" name="myCheckbox" />
                 </div>
-                <div class="col-11 text-left" style="text-align: left !important">
+                <div
+                  class="col-11 text-left"
+                  style="text-align: left !important"
+                >
                   <label for="myCheckbox"
-                    >I want to get information and updated by email regarding this and
-                    other art-projects by LiquidSilver</label
+                    >I want to get information and updated by email regarding
+                    this and other art-projects by LiquidSilver</label
                   >
                 </div>
               </div>
@@ -265,7 +268,7 @@
       </div>
     </div>
   </body>
-
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="./assets/Scripts/app.js"></script>
   <script src="./assets/Scripts/map.js"></script>
   <script src="./assets/Scripts/signup.js"></script>

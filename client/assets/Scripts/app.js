@@ -37,7 +37,6 @@ function showPosition(position) {
 
 $('#myForm').submit(function (e) {
   e.preventDefault();
-  console.log('CLicked Testing', window.currentPosition);
 });
 
 function debounce(func, delay) {

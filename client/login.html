@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: grey;
+      }
+
+      .container {
+        max-width: 400px;
+        margin: auto;
+        padding: 60px;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        margin-top: 100px;
+      }
+
+      h2 {
+        text-align: center;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 8px;
+      }
+
+      input[type='text'],
+      input[type='password'] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+
+      button {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 4px;
+        width: 100%;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Login</h2>
+      <form id="loginForm">
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email" required />
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required />
+
+        <button type="submit">Login</button>
+      </form>
+      <p>
+        If you don't have an account, <a href="signup.html">sign up here</a>.
+      </p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+      document
+        .getElementById('loginForm')
+        .addEventListener('submit', function (e) {
+          e.preventDefault();
+
+          // Retrieve email and password values
+          const email = document.getElementById('email').value;
+          const password = document.getElementById('password').value;
+          axios
+            .post('http://localhost:5000/api/v1/login', { email, password }) // Replace "/submit" with your server endpoint
+            .then(function (response) {
+              // Handle the server's response (if needed)
+              window.location.href = 'map.html';
+              alert('you are logged in successfully');
+
+              // You can redirect or show a success message here
+            })
+            .catch(function (error) {
+              // Handle any errors
+              console.error('Error:', error);
+              // You can show an error message to the user
+            });
+        });
+      // You can add your login logic here
+      // Example: Send a request to the server to validate the credentials
+      // If login is successful, you can redirect the user to another page
+      // For this example, we'll just log the values
+
+      // You can replace the above console.log statements with your login logic.
+    </script>
+  </body>
+</html>
