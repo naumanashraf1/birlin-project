@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
     for (const input of form.elements) {
       if (input.tagName === 'INPUT' || input.tagName === 'TEXTAREA') {
         // Exclude checkboxes from this example
-        console.log(input.value, input.name);
+
         formData[input.name] = input.value;
       }
     }
@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
       .post('http://localhost:5000/api/v1/register', formData) // Replace "/submit" with your server endpoint
       .then(function (response) {
         // Handle the server's response (if needed)
-        alert('you are signed successfully');
+
         window.location.href = 'login.html';
         // You can redirect or show a success message here
       })

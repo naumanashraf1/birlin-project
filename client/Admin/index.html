@@ -30,6 +30,7 @@
           How many qr-codes do you want to generate?
           <br />
           <input
+            required="true"
             class="qrNo form-control"
             type="number"
             min="1"
@@ -72,6 +73,7 @@
         downloadLink.download = fileName;
         downloadLink.click();
       }
+
       document.addEventListener('DOMContentLoaded', function () {
         const button = document.querySelector('.btn-primary');
         button.addEventListener('click', function () {
@@ -82,12 +84,19 @@
             batchSelect.options[batchSelect.selectedIndex].value;
           const batchName = document.querySelector('.form-control').value;
 
+          // Validate qrNo input
+          if (qrNo <= 0 || qrNo > 200) {
+            alert('QR number must be between 1 and 200');
+            return; // Stop execution if validation fails
+          }
+
           // Create an object to store the values
           const formData = {
             qrNo,
             selectedBatch,
             batchName,
           };
+
           axios
             .get(`http://localhost:5000/api/v1/qr-pdf/${qrNo}`, formData)
             .then(function (response) {

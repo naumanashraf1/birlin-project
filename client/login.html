@@ -69,6 +69,8 @@
         If you don't have an account, <a href="signup.html">sign up here</a>.
       </p>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.11.6/dist/sweetalert2.min.js"></script>
+    s
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
       document
@@ -84,7 +86,10 @@
             .then(function (response) {
               // Handle the server's response (if needed)
               window.location.href = 'map.html';
-              alert('you are logged in successfully');
+              Swal.fire({
+                text: 'you are logged in successfully',
+                icon: 'success', // Can be 'success', 'error', 'info', 'warning', etc.
+              });
 
               // You can redirect or show a success message here
             })
