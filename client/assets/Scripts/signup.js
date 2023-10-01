@@ -1,6 +1,6 @@
 // form.js
 document.addEventListener('DOMContentLoaded', function () {
-  const form = document.getElementById('myForm'); // Replace "myForm" with your form's ID
+  const form = document.getElementById('myForm'); 
   form.addEventListener('submit', function (event) {
     event.preventDefault(); // Prevent the default form submission
 

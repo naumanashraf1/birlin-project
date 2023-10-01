@@ -35,9 +35,44 @@
       async
       defer
     ></script>
-    <!--  to enable jquery -->
-  </head>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
 
+      .container-fluid {
+        text-align: center;
+      }
+
+      .myFormControl {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 400px;
+        margin-bottom: 20px;
+      }
+
+      .form-control {
+        width: 100%;
+      }
+
+      .form-group label {
+        text-align: left;
+      }
+
+      .fieryBtn {
+        text-align: center;
+      }
+    </style>
+  </head>
   <body>
     <div
       class="container-fluid d-flex justify-content-center signupC text-center p-5"
@@ -67,23 +102,17 @@
             ></iframe>
           </div>
         </div>
-
         <div class="col col-sm-12 col-md-12 col-12">
           <div class="col col-12 text-center">
             <h2 class="journey" style="text-shadow: 1px 1px 20px white">
               Take Part in The Journey
             </h2>
-            <!-- <div class="col-sm-10">
-                        <button onclick="getLocation()">Try me</button>
-                        <p id="demo"></p>
-                    </div> -->
           </div>
-
-          <div class="col col-12 mainCC">
+          <div class="col col-12">
             <form id="myForm" class="myFormControl">
               <div class="form-group row">
                 <label for="inputName" class="col-12 labelText">Username</label>
-                <div class="col col-sm-12 col-md-6">
+                <div>
                   <input
                     type="text"
                     class="form-control"
@@ -96,7 +125,7 @@
               </div>
               <div class="form-group row">
                 <label for="inputName" class="col-12 labelText">Password</label>
-                <div class="col col-sm-12 col-md-6">
+                <div>
                   <input
                     type="password"
                     class="form-control"
@@ -107,10 +136,9 @@
                   />
                 </div>
               </div>
-
               <div class="form-group row">
                 <label for="inputName" class="col-12 labelText">Alias</label>
-                <div class="col col-sm-12 col-md-6">
+                <div>
                   <input
                     type="text"
                     class="form-control"
@@ -121,10 +149,9 @@
                   />
                 </div>
               </div>
-
               <div class="form-group row">
                 <label for="inputEmail3" class="col-12 labelText">Email</label>
-                <div class="col col-sm-12 col-md-6">
+                <div>
                   <input
                     type="email"
                     class="form-control"
@@ -135,12 +162,11 @@
                   />
                 </div>
               </div>
-
               <div class="form-group row">
                 <label for="inputName" class="col-12 labelText"
                   >Where are you from?</label
                 >
-                <div class="col col-sm-12 col-md-7 labelText gpsText">
+                <div class="col labelText gpsText">
                   <button class="btn text-white w-100" onclick="getLocation()">
                     <i class="bi bi-geo-alt-fill"></i>
                     Allow gps-coordinates to be uploaded (one time)
@@ -148,14 +174,12 @@
                   <p id="demo"></p>
                 </div>
               </div>
-
               <div id="map" style="height: 400px; width: 400px"></div>
-
-              <div class="form-group row">
+              <div class="form-group row mt-3">
                 <label for="NOMAD" class="col-12 labelText"
                   >How did the Nomad find you?</label
                 >
-                <div class="col col-sm-12 col-md-6">
+                <div class="col col-sm-12 col-md-12">
                   <textarea
                     name="foundDetail"
                     class="form-control"
@@ -166,13 +190,12 @@
                   ></textarea>
                 </div>
               </div>
-
-              <div class="row">
+              <div class="row justify-content-center">
                 <div class="col-1">
                   <input type="checkbox" id="myCheckbox" name="myCheckbox" />
                 </div>
                 <div
-                  class="col-11 text-left"
+                  class="col-6 text-left"
                   style="text-align: left !important"
                 >
                   <label for="myCheckbox"
@@ -183,15 +206,20 @@
                   >
                 </div>
               </div>
-
               <br />
-
-              <div class="row">
+              <div
+                class="row justify-content-center"
+                style="
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                "
+              >
                 <div class="col-1">
                   <input type="checkbox" id="myCheckbox" name="myCheckbox" />
                 </div>
                 <div
-                  class="col-11 text-left"
+                  class="col-6 text-left"
                   style="text-align: left !important"
                 >
                   <label for="myCheckbox"
@@ -200,19 +228,6 @@
                   >
                 </div>
               </div>
-
-              <!-- <div class="form-group row">
-                            <label for="myCheckbox">I approve that the information and material provided above can be
-                                used freely by the copyright holder under the
-                                agreement of the hereby provided fine print terms and conditions.</label>
-                            <input type="checkbox" id="myCheckbox" name="myCheckbox">
-                        </div>
-                        <div class="form-group row">
-                            <label for="myCheckbox">I want to get information and updated by email regarding this and
-                                other art-projects by LiquidSilver</label>
-                            <input type="checkbox" id="myCheckbox" name="myCheckbox">
-                        </div> -->
-
               <br />
               <br />
               <br />
