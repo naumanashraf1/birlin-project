@@ -25,9 +25,7 @@ export const getNomads = async (
 
     users = await User.find(query);
 
-    res.send(
-      users.map((user) => ({ location: user.location, city: user.city }))
-    );
+    res.send(users);
   } catch (error) {
     console.log(error);
   }

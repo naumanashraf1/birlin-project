@@ -66,6 +66,40 @@ function addMarkers(markerPositions) {
   );
 }
 
+function addPopups(users) {
+  if (!window.mapRef) return;
+
+  if (!window.markers || !users) return;
+
+  console.log("🚀 ~ file: map.js:76 ~ addPopups ~ users:", users)
+  window.markers.forEach((marker, i) => {
+    const { name, email, nomId, alias, city } = users[i]
+
+    const contentString = `
+      <div class='info-window'>
+          <h2 class='info-title'>Personal Information</h2>
+          <p class='info-text'><strong>Name: </strong>${name}</p>
+          <p class='info-text'><strong>Email: </strong>${email}</p>
+          <p class='info-text'><strong>Alias: </strong>${alias}</p>
+          <p class='info-text'><strong>Nom ID: </strong>${nomId}</p>
+          <p class='info-text'><strong>City: </strong>${city}</p>
+      </div>
+    `;
+
+    const infowindow = new google.maps.InfoWindow({
+      content: contentString,
+      ariaLabel: nomId,
+    });
+
+    marker.addListener("click", () => {
+      infowindow.open({
+        anchor: marker,
+        map: window.mapRef,
+      });
+    });
+  });
+}
+
 const checkInputs = document.querySelectorAll('.form-check-input');
 const textInput = document.querySelector('.form-text-input');
 
@@ -84,6 +118,7 @@ const onChange = () => {
     .post('http://localhost:5000/api/v1/nomads', { locations, nomId }) // Replace "/submit" with your server endpoint
     .then(function (response) {
       addMarkers(response.data);
+      addPopups(response.data)
     })
     .catch(function (error) {
       // Handle any errors
