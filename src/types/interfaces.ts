@@ -2,7 +2,7 @@ export type CITY = 'Berlin' | 'New Delhi' | 'Other';
 
 export type User = {
   name: String;
-
+  status: boolean;
   email: String;
   password: String;
 

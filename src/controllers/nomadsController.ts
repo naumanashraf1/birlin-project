@@ -23,7 +23,7 @@ export const getNomads = async (
         city: { $in: locations },
       };
 
-    users = await User.find(query);
+    users = await User.find({ ...query, status: true });
 
     res.send(users);
   } catch (error) {

@@ -59,3 +59,41 @@ export const login = CatchAsync(
     res.send(token);
   }
 );
+export const getAllUsers = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  const users = await User.find({
+    $or: [
+      { status: false }, // Matches documents where status is false
+      { status: { $exists: false } }, // Matches documents where status doesn't exist
+    ],
+  });
+
+  res.send(users);
+};
+export const deleteUser = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  const user = await User.findByIdAndDelete(req.params.id);
+
+  res.send('user deleted');
+};
+export const ApproveUser = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  const user = await User.updateOne(
+    {
+      _id: req.params.id,
+    },
+    {
+      status: true,
+    }
+  );
+  res.send('user updated');
+};

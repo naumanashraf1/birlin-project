@@ -7,6 +7,10 @@ const userSchema = new Schema<User>({
     type: String,
     maxlength: 50,
   },
+  status: {
+    type: Boolean,
+    default: false,
+  },
   email: {
     type: String,
     unique: true,
