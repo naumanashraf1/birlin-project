@@ -25,7 +25,7 @@ export const generatePdf = async (
             new ErrorHandler('problem in ejs template creation try again', 400)
           );
         } else {
-          const buffer: Buffer = await pdfMaker(data, next);
+          const buffer: Buffer = await pdfMaker(data, Number(42), next);
 
           const base64 = Buffer.from(buffer).toString('base64');
           return res.send(base64);

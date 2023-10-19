@@ -1,7 +1,7 @@
 {
-  "name": "resumemakerbackend",
+  "name": "maps",
   "version": "1.0.0",
-  "description": "a resume builder",
+  "description": "maps",
   "main": "index.js",
   "scripts": {
     "dev": "set NODE_ENV=development && nodemon src/index.ts",
@@ -53,6 +53,7 @@
     "mongoose": "^6.6.5",
     "morgan": "^1.10.0",
     "multer": "^1.4.5-lts.1",
+    "nodemon": "^3.0.1",
     "puppeteer": "^19.3.0",
     "qrcode": "^1.5.3",
     "short-unique-id": "^5.0.2",
